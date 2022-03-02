@@ -1,0 +1,2 @@
+directive @entity(className : String!) on OBJECT
+directive @column(name : String!) on FIELD_DEFINITION

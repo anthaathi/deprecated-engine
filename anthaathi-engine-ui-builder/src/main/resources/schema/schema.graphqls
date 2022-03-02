@@ -1,0 +1,11 @@
+extend type Query {
+    version: String
+}
+
+interface Node {
+    id: ID
+}
+
+type SomeEntity implements Node @entity(className: "com.anthaathi.entity.engine") {
+    id: ID
+}
