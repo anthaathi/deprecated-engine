@@ -1,11 +1,18 @@
-extend type Query {
-    version: String
+type Query {
+    someEntities(filters: SomeEntityFilterInput, after: String, before: String): SomeEntityConnection
+}
+
+input m {
+    k: String
 }
 
 interface Node {
-    id: ID
+    id: ID!
 }
 
-type SomeEntity implements Node @entity(className: "com.anthaathi.entity.engine") {
-    id: ID
+type SomeEntity implements Node @entity(
+    className: "com.anthaathi.entity.SomeEntity",
+) @connection {
+    id: ID! @column(name: "id") @filterable
+    title: String
 }

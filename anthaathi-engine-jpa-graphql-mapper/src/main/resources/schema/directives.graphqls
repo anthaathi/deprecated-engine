@@ -1,2 +1,6 @@
-directive @entity(className : String!) on OBJECT
+directive @entity(
+    className : String!,
+) on OBJECT
 directive @column(name : String!) on FIELD_DEFINITION
+directive @filterable on FIELD_DEFINITION
+directive @connection on OBJECT

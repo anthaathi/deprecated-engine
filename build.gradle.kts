@@ -14,7 +14,7 @@ plugins {
 	kotlin("plugin.spring") version "1.6.10" apply false
 	id("nebula.netflixoss") version "10.5.1"
 	id("org.jmailen.kotlinter") version "3.6.0"
-//	kotlin("kapt") version Versions.KOTLIN_VERSION apply false
+	// kotlin("kapt") version Versions.KOTLIN_VERSION apply false
 	id("com.netflix.dgs.codegen") version "5.1.17" apply false
 	idea
 	eclipse
@@ -101,12 +101,8 @@ configure(subprojects.filter { it in graphqlServices }) {
 		plugin("com.netflix.dgs.codegen")
 	}
 
-	// I don't have any idea how did it work or not
+	// This is hack and somehow working one
 	val developmentOnly = configurations.getByName("developmentOnly")
-
-	tasks.withType<BootJar> {
-		enabled = true
-	}
 
 	dependencies {
 		annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
