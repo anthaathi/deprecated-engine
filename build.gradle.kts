@@ -77,6 +77,10 @@ configure(subprojects.filter { it in springServices }) {
 		implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 		implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:${ Versions.DGS_VERSION }"))
 		implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")
+		testImplementation("org.assertj:assertj-core:3.11.1")
+		testImplementation("io.mockk:mockk:1.12.3")
+		testImplementation("io.github.origin-energy:java-snapshot-testing-junit5:3.2.+")
+		testImplementation("org.slf4j:slf4j-simple:2.0.0-alpha6")
 	}
 
 	tasks.named("generateLock") {

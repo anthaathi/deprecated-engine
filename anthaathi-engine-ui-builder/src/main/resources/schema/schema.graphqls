@@ -1,18 +1,31 @@
 type Query {
-    someEntities(filters: SomeEntityFilterInput, after: String, before: String): SomeEntityConnection
+#    someEntities(
+#        filters: SomeEntityFilterInput,
+#        after: String,
+#        before: String,
+#        first: Int,
+#        last: Int,
+#    ): SomeEntityConnection
+    version: String
 }
 
-input m {
-    k: String
-}
-
-interface Node {
-    id: ID!
-}
-
-type SomeEntity implements Node @entity(
-    className: "com.anthaathi.entity.SomeEntity",
-) @connection {
-    id: ID! @column(name: "id") @filterable
-    title: String
-}
+#input SomeEntityFilterInput {
+#    where: SomeEntityFilterWhereCond
+#}
+#
+#input SomeEntityFilterWhereCond {
+#    _and: [SomeEntityFilterWhereCond!]
+#    _or: [SomeEntityFilterWhereCond!]
+#    _not: SomeEntityFilterWhereCond
+#}
+#
+#interface Node {
+#    id: ID!
+#}
+#
+#type SomeEntity implements Node @entity(
+#    className: "com.anthaathi.entity.SomeEntity",
+#) @connection {
+#    id: ID! @column(name: "id") @filterable
+#    title: String
+#}
